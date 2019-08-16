@@ -9,7 +9,7 @@ namespace SportsStore
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddTransient<IProductRepository, IProductRepository>();
+            services.AddTransient<IProductRepository, FakeProductRepository>();
             services.AddMvc();
         }
 
@@ -18,7 +18,11 @@ namespace SportsStore
             app.UseDeveloperExceptionPage();
             app.UseStatusCodePages();
             app.UseStaticFiles();
-            app.UseMvc(route => { });
+            app.UseMvc(route =>
+            {
+                route.MapRoute("default",
+                    "{controller=Product}/{action=List}/{id?}");
+            });
         }
     }
 }
