@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
+using SportsStore.Models;
 
 namespace SportsStore
 {
@@ -8,6 +9,7 @@ namespace SportsStore
     {
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddTransient<IProductRepository, IProductRepository>();
             services.AddMvc();
         }
 
