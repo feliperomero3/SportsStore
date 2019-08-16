@@ -1,0 +1,18 @@
+﻿@model IEnumerable<Product>
+
+@{
+    ViewData["Title"] = "View";
+}
+
+<h1>List</h1>
+
+<p>
+    @foreach (var p in Model)
+    {
+        <div>
+            <h3>@p.Name</h3>
+            @p.Description
+            <h4>@p.Price.ToString("c")</h4>
+        </div>
+    }
+</p>
