@@ -16,19 +16,9 @@ namespace SportsStore.Tests
             // Arrange
             var mock = new Mock<IProductRepository>();
 
-            mock.Setup(m => m.Products).Returns(new[]
-            {
-                new Product { ProductId = 1, Name = "Product 1" },
-                new Product { ProductId = 2, Name = "Product 2" },
-                new Product { ProductId = 3, Name = "Product 3" },
-                new Product { ProductId = 4, Name = "Product 4" },
-                new Product { ProductId = 5, Name = "Product 5" }
-            });
+            mock.Setup(m => m.Products).Returns(GetTestProducts());
 
-            var controller = new ProductController(mock.Object)
-            {
-                PageSize = 3
-            };
+            var controller = new ProductController(mock.Object) { PageSize = 3 };
 
             // Act
             var result = controller.List(productPage: 2).ViewData.Model as IEnumerable<Product>;
@@ -41,6 +31,18 @@ namespace SportsStore.Tests
             Assert.True(prodArray.Length == 2);
             Assert.Equal("Product 4", prodArray[0].Name);
             Assert.Equal("Product 5", prodArray[1].Name);
+        }
+
+        private static IEnumerable<Product> GetTestProducts()
+        {
+            return new[]
+            {
+                new Product { ProductId = 1, Name = "Product 1" },
+                new Product { ProductId = 2, Name = "Product 2" },
+                new Product { ProductId = 3, Name = "Product 3" },
+                new Product { ProductId = 4, Name = "Product 4" },
+                new Product { ProductId = 5, Name = "Product 5" }
+            };
         }
     }
 }
