@@ -8,7 +8,7 @@ namespace SportsStore.Controllers
     {
         private readonly IProductRepository _repository;
 
-        public int PageSize { get; } = 4;
+        public int PageSize { get; set; } = 4;
 
         public ProductController(IProductRepository repository)
         {
