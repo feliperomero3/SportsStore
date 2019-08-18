@@ -1,3 +1,9 @@
+# ASP.NET Core
+# Build and test ASP.NET Core projects targeting .NET Core.
+
+trigger:
+- master
+
 pool:
   vmImage: 'windows-latest'
 
