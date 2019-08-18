@@ -1,3 +1,6 @@
+pool:
+  vmImage: 'windows-latest'
+
 steps:
 - task: DotNetCoreCLI@2
   displayName: Build
