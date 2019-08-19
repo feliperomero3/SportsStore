@@ -12,7 +12,7 @@ variables:
 
 steps:
 - task: DotNetCoreCLI@2
-  displayName: Build
+  displayName: 'Build'
   inputs:
     command: build
     projects: '**/*.csproj'
@@ -24,3 +24,11 @@ steps:
     command: 'test'
     projects: '**/*.csproj'
     arguments: '--configuration $(buildConfiguration)'
+
+- task: DotNetCoreCLI@2
+  displayName: 'Publish'
+  inputs:
+    command: publish
+    publishWebProjects: true
+    arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+    zipAfterPublish: true
