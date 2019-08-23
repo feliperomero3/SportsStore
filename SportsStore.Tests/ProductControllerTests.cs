@@ -3,6 +3,7 @@ using System.Linq;
 using Moq;
 using SportsStore.Controllers;
 using SportsStore.Models;
+using SportsStore.Models.ViewModels;
 using Xunit;
 using Xunit.Sdk;
 
@@ -21,12 +22,12 @@ namespace SportsStore.Tests
             var controller = new ProductController(mock.Object) { PageSize = 3 };
 
             // Act
-            var result = controller.List(productPage: 2).ViewData.Model as IEnumerable<Product>;
+            var result = controller.List(productPage: 2).ViewData.Model as ProductsListViewModel;
 
             // Assert
             if (result == null) throw new XunitException();
 
-            var prodArray = result.ToArray();
+            var prodArray = result.Products.ToArray();
 
             Assert.True(prodArray.Length == 2);
             Assert.Equal("Product 4", prodArray[0].Name);
