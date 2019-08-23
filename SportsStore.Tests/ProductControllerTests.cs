@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Moq;
 using SportsStore.Controllers;
@@ -44,6 +45,30 @@ namespace SportsStore.Tests
                 new Product { ProductId = 4, Name = "Product 4" },
                 new Product { ProductId = 5, Name = "Product 5" }
             };
+        }
+
+        [Fact]
+        public void Can_Send_Pagination_View_Model()
+        {
+            // Arrange
+            var mock = new Mock<IProductRepository>();
+
+            mock.Setup(m => m.Products).Returns(GetTestProducts());
+
+            var controller = new ProductController(mock.Object) { PageSize = 3 };
+
+            // Act
+            var result = controller.List(productPage: 2).ViewData.Model as ProductsListViewModel;
+
+            // Assert
+            if (result == null) throw new ArgumentNullException("results");
+
+            var pageInfo = result.PagingInfo;
+
+            Assert.Equal(2, pageInfo.CurrentPage);
+            Assert.Equal(3, pageInfo.ItemsPerPage);
+            Assert.Equal(5, pageInfo.TotalItems);
+            Assert.Equal(2, pageInfo.TotalPages);
         }
     }
 }
