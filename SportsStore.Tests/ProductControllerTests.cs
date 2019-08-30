@@ -23,7 +23,7 @@ namespace SportsStore.Tests
             var controller = new ProductController(mock.Object) { PageSize = 3 };
 
             // Act
-            var result = controller.List(productPage: 2).ViewData.Model as ProductsListViewModel;
+            var result = controller.List(category: null, productPage: 2).ViewData.Model as ProductsListViewModel;
 
             // Assert
             if (result == null) throw new XunitException();
@@ -58,7 +58,7 @@ namespace SportsStore.Tests
             var controller = new ProductController(mock.Object) { PageSize = 3 };
 
             // Act
-            var result = controller.List(productPage: 2).ViewData.Model as ProductsListViewModel;
+            var result = controller.List(category: null, productPage: 2).ViewData.Model as ProductsListViewModel;
 
             // Assert
             if (result == null) throw new ArgumentNullException("results");
