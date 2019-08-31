@@ -70,5 +70,35 @@ namespace SportsStore.Tests
             Assert.Equal(5, pageInfo.TotalItems);
             Assert.Equal(2, pageInfo.TotalPages);
         }
+
+        [Fact]
+        public void Can_Filter_Products()
+        {
+            // Arrange
+            var mock = new Mock<IProductRepository>();
+
+            mock.Setup(m => m.Products).Returns(new[]
+            {
+                new Product {ProductId = 1, Name = "P1", Category = "Cat1"},
+                new Product {ProductId = 2, Name = "P2", Category = "Cat2"},
+                new Product {ProductId = 3, Name = "P3", Category = "Cat1"},
+                new Product {ProductId = 4, Name = "P4", Category = "Cat2"},
+                new Product {ProductId = 5, Name = "P5", Category = "Cat3"}
+            });
+
+            var controller = new ProductController(mock.Object) { PageSize = 3 };
+
+            // Act
+            var result = controller.List(category: "Cat2", productPage: 1).ViewData.Model as ProductsListViewModel;
+
+            if (result == null) throw new XunitException("result was null.");
+
+            var products = result.Products.ToArray();
+
+            // Assert
+            Assert.Equal(2, products.Length);
+            Assert.True(products[0].Name == "P2" && products[0].Category == "Cat2");
+            Assert.True(products[1].Name == "P4" && products[1].Category == "Cat2");
+        }
     }
 }
