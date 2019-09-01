@@ -28,7 +28,7 @@ namespace SportsStore.Context
                 {
                     Name = "Life jacket",
                     Description = "Protective and fashionable",
-                    Category = "Waters sports",
+                    Category = "Water sports",
                     Price = 48.95
                 },
                 new Product
