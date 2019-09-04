@@ -9,7 +9,8 @@
 
 @foreach (var category in Model)
 {
-    <a class="btn btn-block btn-light border-secondary"
+    <a class="btn btn-block border-secondary
+       @(ViewBag.SelectedCategory == category ? "btn-primary" : "btn-light")"
        asp-action="List"
        asp-controller="Product"
        asp-route-category="@category"
