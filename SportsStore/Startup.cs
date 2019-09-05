@@ -32,6 +32,7 @@ namespace SportsStore
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             app.UseDeveloperExceptionPage();
+            app.UseBrowserLink();
             app.UseStatusCodePages();
             app.UseStaticFiles();
             app.UseMvc(route =>
