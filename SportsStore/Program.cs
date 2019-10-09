@@ -1,8 +1,8 @@
-﻿using System;
-using System.Data.SqlClient;
+﻿using System.Data.SqlClient;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using SportsStore.Context;
 
 namespace SportsStore
@@ -22,10 +22,14 @@ namespace SportsStore
                     var context = services.GetRequiredService<ApplicationDbContext>();
 
                     DbInitializer.Initialize(context);
+
                 }
                 catch (SqlException e)
                 {
-                    Console.WriteLine(e);
+                    var logger = services.GetRequiredService<ILogger<Program>>();
+
+                    logger.LogError(e, "An error occurred creating the DB.");
+
                     throw;
                 }
             }
