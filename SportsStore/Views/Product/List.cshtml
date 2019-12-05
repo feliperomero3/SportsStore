@@ -9,7 +9,7 @@
 <p>
     @foreach (var p in Model.Products)
     {
-        @Html.Partial("ProductSummary", p)
+        @await Html.PartialAsync("ProductSummary", p)
     }
 
     <div class="btn-group float-right m-1"
