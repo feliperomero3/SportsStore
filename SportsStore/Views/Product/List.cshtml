@@ -12,8 +12,13 @@
         @Html.Partial("ProductSummary", p)
     }
 
-    <div class="btn-group float-right m-1" page-model="@Model.PagingInfo" page-action="List" page-classes-enabled="true"
-         page-class="btn" page-class-normal="btn-secondary"
-         page-class-selected="btn-primary" page-url-category="@Model.CurrentCategory">
+    <div class="btn-group float-right m-1"
+         page-model="@Model.PagingInfo"
+         page-action="List"
+         page-classes-enabled="true"
+         page-class="btn"
+         page-class-normal="btn-secondary"
+         page-class-selected="btn-primary"
+         page-url-category="@Model.CurrentCategory">
     </div>
 </p>
