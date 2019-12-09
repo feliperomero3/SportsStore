@@ -27,6 +27,7 @@ namespace SportsStore
                     Configuration.GetConnectionString("DefaultConnection"));
             });
             services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<IOrderRepository, OrderRepository>();
             services.AddScoped(SessionCart.GetCart);
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddMvc();

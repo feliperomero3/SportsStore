@@ -5,7 +5,7 @@ namespace SportsStore.Models
 {
     public class Cart
     {
-        private List<CartLine> _lineCollection = new List<CartLine>();
+        private readonly List<CartLine> _lineCollection = new List<CartLine>();
 
         public virtual void AddItem(Product product, int quantity)
         {
