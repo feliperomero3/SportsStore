@@ -10,6 +10,9 @@ namespace SportsStore.Models
         public int OrderId { get; set; }
 
         [BindNever]
+        public bool Shipped { get; set; }
+
+        [BindNever]
         public ICollection<CartLine> Lines { get; set; }
 
         [Required(ErrorMessage = "Please enter a name")]
@@ -25,7 +28,6 @@ namespace SportsStore.Models
         public string City { get; set; }
 
         [Required(ErrorMessage = "Please enter a state name")]
-
         public string State { get; set; }
 
         public string Zip { get; set; }
