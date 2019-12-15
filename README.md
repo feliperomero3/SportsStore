@@ -9,7 +9,7 @@ This project is built on ASP.NET Core 2.2 (the Book uses ASP.NET Core 2.0).
 - ASP.NET Core 2.2
 - Visual Studio 2019
 
-# How to run
+## How to run
 
 File > Open > Project/Solution and hit F5!
 
