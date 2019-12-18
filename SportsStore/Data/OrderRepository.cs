@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 using Microsoft.EntityFrameworkCore;
-using SportsStore.Context;
+using SportsStore.Contexts;
 using SportsStore.Models;
 
 namespace SportsStore.Data

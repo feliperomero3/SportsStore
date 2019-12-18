@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using SportsStore.Models;
 
-namespace SportsStore.Context
+namespace SportsStore.Contexts
 {
     public static class DbInitializer
     {
