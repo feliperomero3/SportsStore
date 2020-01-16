@@ -6,7 +6,7 @@ namespace SportsStore.Contexts
 {
     public class ApplicationIdentityDbContext : IdentityDbContext<IdentityUser>
     {
-        public ApplicationIdentityDbContext(DbContextOptions options) : base(options)
+        public ApplicationIdentityDbContext(DbContextOptions<ApplicationIdentityDbContext> options) : base(options)
         {
         }
     }
