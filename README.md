@@ -13,4 +13,7 @@ This project is built on ASP.NET Core 2.2 (the Book uses ASP.NET Core 2.0).
 
 File > Open > Project/Solution and hit F5!
 
+## Screen captures
+
 ![Front Page](2019.12.11-20_40_48.png)
+
