@@ -21,7 +21,7 @@ namespace SportsStore.Tests
             {
                 new Product { ProductId = 1, Name = "P1" },
                 new Product { ProductId = 2, Name = "P2" },
-                new Product { ProductId = 3, Name = "P3" },
+                new Product { ProductId = 3, Name = "P3" }
             }.AsQueryable());
 
             // Arrange - create a controller
@@ -52,7 +52,7 @@ namespace SportsStore.Tests
             mock.Setup(m => m.Products).Returns(new[] {
                 new Product {ProductId = 1, Name = "P1"},
                 new Product {ProductId = 2, Name = "P2"},
-                new Product {ProductId = 3, Name = "P3"},
+                new Product {ProductId = 3, Name = "P3"}
             }.AsQueryable());
 
             // Arrange - create the controller
@@ -78,7 +78,7 @@ namespace SportsStore.Tests
             mock.Setup(m => m.Products).Returns(new[] {
                 new Product {ProductId = 1, Name = "P1"},
                 new Product {ProductId = 2, Name = "P2"},
-                new Product {ProductId = 3, Name = "P3"},
+                new Product {ProductId = 3, Name = "P3"}
             }.AsQueryable());
 
             // Arrange - create the controller
