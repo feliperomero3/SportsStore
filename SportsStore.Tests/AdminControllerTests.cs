@@ -113,7 +113,7 @@ namespace SportsStore.Tests
             var result = target.Edit(product);
 
             // Assert - check that the repository was called
-            mock.Verify(m => m.SaveProduct(product));
+            mock.Verify(m => m.SaveProduct(product), Times.Once);
 
             // Assert - check the result type is a redirection
             Assert.IsType<RedirectToActionResult>(result);
