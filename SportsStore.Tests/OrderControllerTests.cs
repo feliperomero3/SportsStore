@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Linq;
+using Microsoft.AspNetCore.Mvc;
 using Moq;
 using SportsStore.Controllers;
 using SportsStore.Models;
@@ -83,6 +84,44 @@ namespace SportsStore.Tests
 
             // Assert - check that the method is redirecting to the Completed action
             Assert.Equal("Completed", result?.ActionName);
+        }
+
+        [Fact]
+        public void Can_MarkShipped_Existing_Order()
+        {
+            // Arrange
+            var mock = new Mock<IOrderRepository>();
+
+            var orders = new[]
+            {
+                new Order
+                {
+                    OrderId = 1,
+                    Name = "John Doe",
+                    Line1 = "Avenida Principal",
+                    City = "Cabo San Lucas",
+                    State = "BCS",
+                    Country = "Mexico"
+                }
+            };
+
+            mock.Setup(r => r.Orders).Returns(orders.AsQueryable());
+
+            var cart = new Cart();
+
+            cart.AddItem(new Product(), 1);
+
+            var target = new OrderController(mock.Object, cart);
+
+            // Act
+            var result = target.MarkShipped(1) as RedirectToActionResult;
+
+            // Assert
+            mock.Verify(m => m.SaveOrder(It.IsAny<Order>()), Times.Once);
+
+            Assert.True(orders[0].Shipped);
+
+            Assert.Equal("List", result?.ActionName);
         }
     }
 }
