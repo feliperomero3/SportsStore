@@ -8,9 +8,9 @@ namespace SportsStore.Controllers
     {
         private readonly IProductRepository _repository;
 
-        public AdminController(IProductRepository repo)
+        public AdminController(IProductRepository repository)
         {
-            _repository = repo;
+            _repository = repository;
         }
 
         public ViewResult Index() => View(_repository.Products);
