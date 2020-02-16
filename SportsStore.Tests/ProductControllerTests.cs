@@ -14,7 +14,7 @@ namespace SportsStore.Tests
     public class ProductControllerTests
     {
         [Fact]
-        public void CanPaginate()
+        public void Can_Paginate()
         {
             // Arrange
             var mock = new Mock<IProductRepository>();
