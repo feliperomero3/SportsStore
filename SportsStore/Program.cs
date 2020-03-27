@@ -1,6 +1,7 @@
 ﻿using System.Data.SqlClient;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using SportsStore.Contexts;
@@ -9,7 +10,7 @@ namespace SportsStore
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static async System.Threading.Tasks.Task Main(string[] args)
         {
             var host = CreateWebHostBuilder(args).Build();
 
@@ -20,9 +21,10 @@ namespace SportsStore
                 try
                 {
                     var context = services.GetRequiredService<ApplicationDbContext>();
-
                     DbInitializer.Initialize(context);
 
+                    var userManager = services.GetRequiredService<UserManager<IdentityUser>>();
+                    await IdentitySeedData.SeedAsync(userManager);
                 }
                 catch (SqlException e)
                 {
