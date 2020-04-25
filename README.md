@@ -1,5 +1,7 @@
 # SportsStore
 
+[![Build Status][build-status-badge]][build-status]
+
 Based on the "Sports Store: A Real Application" built in the book Pro ASP.NET Core MVC 2 by Adam Freeman.
 
 This project is built on ASP.NET Core 2.2 (the book uses ASP.NET Core 2.0).
@@ -17,3 +19,5 @@ File > Open > Project/Solution and hit F5!
 
 ![Front Page](2019.12.11-20_40_48.png)
 
+[build-status-badge]: https://dev.azure.com/epicor-feliperomero/SportsStore/_apis/build/status/SportsStore?branchName=master
+[build-status]: https://dev.azure.com/epicor-feliperomero/SportsStore/_build/latest?definitionId=1&branchName=master
