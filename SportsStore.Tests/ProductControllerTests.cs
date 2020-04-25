@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
@@ -118,8 +117,7 @@ namespace SportsStore.Tests
 
             var controller = new ProductController(mock.Object) { PageSize = 3 };
 
-            Func<ViewResult, ProductsListViewModel> GetViewDataModel = result =>
-                result.ViewData.Model as ProductsListViewModel;
+            ProductsListViewModel GetViewDataModel(ViewResult result) => result.ViewData.Model as ProductsListViewModel;
 
             // Act
             var result1 = GetViewDataModel(controller.List("Cat1"))?.PagingInfo.TotalItems;
