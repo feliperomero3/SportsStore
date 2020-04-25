@@ -1,6 +1,7 @@
 # SportsStore
 
 [![Build Status][build-status-badge]][build-status]
+[![Coverage][coverage-badge]][coverage]
 
 Based on the "Sports Store: A Real Application" built in the book Pro ASP.NET Core MVC 2 by Adam Freeman.
 
@@ -21,3 +22,5 @@ File > Open > Project/Solution and hit F5!
 
 [build-status-badge]: https://dev.azure.com/epicor-feliperomero/SportsStore/_apis/build/status/SportsStore?branchName=master
 [build-status]: https://dev.azure.com/epicor-feliperomero/SportsStore/_build/latest?definitionId=1&branchName=master
+[coverage-badge]: https://img.shields.io/azure-devops/coverage/epicor-feliperomero/sportsstore/1/master
+[coverage]: https://dev.azure.com/epicor-feliperomero/SportsStore/_build/latest?definitionId=1&branchName=master
