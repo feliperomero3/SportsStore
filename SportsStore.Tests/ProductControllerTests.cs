@@ -7,7 +7,6 @@ using SportsStore.Controllers;
 using SportsStore.Models;
 using SportsStore.Models.ViewModels;
 using Xunit;
-using Xunit.Sdk;
 
 namespace SportsStore.Tests
 {
@@ -27,7 +26,7 @@ namespace SportsStore.Tests
             var result = controller.List(category: null, productPage: 2).ViewData.Model as ProductsListViewModel;
 
             // Assert
-            if (result == null) throw new XunitException();
+            Assert.NotNull(result);
 
             var prodArray = result.Products.ToArray();
 
@@ -62,7 +61,7 @@ namespace SportsStore.Tests
             var result = controller.List(category: null, productPage: 2).ViewData.Model as ProductsListViewModel;
 
             // Assert
-            if (result == null) throw new ArgumentNullException("results");
+            Assert.NotNull(result);
 
             var pageInfo = result.PagingInfo;
 
@@ -92,11 +91,11 @@ namespace SportsStore.Tests
             // Act
             var result = controller.List(category: "Cat2", productPage: 1).ViewData.Model as ProductsListViewModel;
 
-            if (result == null) throw new XunitException("result was null.");
+            // Assert
+            Assert.NotNull(result);
 
             var products = result.Products.ToArray();
 
-            // Assert
             Assert.Equal(2, products.Length);
             Assert.True(products[0].Name == "P2" && products[0].Category == "Cat2");
             Assert.True(products[1].Name == "P4" && products[1].Category == "Cat2");
@@ -123,8 +122,6 @@ namespace SportsStore.Tests
                 result.ViewData.Model as ProductsListViewModel;
 
             // Act
-            if (GetViewDataModel == null) throw new XunitException("GetViewDataModel was null.");
-
             var result1 = GetViewDataModel(controller.List("Cat1"))?.PagingInfo.TotalItems;
             var result2 = GetViewDataModel(controller.List("Cat2"))?.PagingInfo.TotalItems;
             var result3 = GetViewDataModel(controller.List("Cat3"))?.PagingInfo.TotalItems;
