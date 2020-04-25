@@ -4,7 +4,7 @@ using SportsStore.Models;
 
 namespace SportsStore.Contexts
 {
-    public static class DbInitializer
+    public static class ApplicationDbInitializer
     {
         public static void Initialize(ApplicationDbContext context)
         {
