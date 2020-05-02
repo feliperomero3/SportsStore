@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace SportsStore.Migrations
+namespace SportsStore.Contexts.Migrations
 {
     public partial class Orders : Migration
     {

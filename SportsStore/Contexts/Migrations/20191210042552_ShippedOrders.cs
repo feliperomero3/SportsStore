@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace SportsStore.Migrations
+namespace SportsStore.Contexts.Migrations
 {
     public partial class ShippedOrders : Migration
     {
