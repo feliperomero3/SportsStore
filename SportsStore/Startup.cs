@@ -24,8 +24,7 @@ namespace SportsStore
         {
             services.AddDbContext<ApplicationDbContext>(options =>
             {
-                options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection"));
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
             services.AddDbContext<ApplicationIdentityDbContext>(options =>
             {
