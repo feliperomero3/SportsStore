@@ -44,9 +44,17 @@ namespace SportsStore
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            app.UseDeveloperExceptionPage();
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+                app.UseStatusCodePages();
+            }
+            else
+            {
+                app.UseExceptionHandler("/Error");
+            }
+
             app.UseBrowserLink();
-            app.UseStatusCodePages();
             app.UseStaticFiles();
             app.UseSession();
             app.UseAuthentication();
