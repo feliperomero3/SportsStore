@@ -25,7 +25,7 @@ namespace SportsStore
                     ApplicationDbInitializer.Initialize(context);
 
                     var userManager = services.GetRequiredService<UserManager<IdentityUser>>();
-                    await IdentitySeedData.SeedAsync(userManager);
+                    await ApplicationIdentitySeedData.SeedAsync(userManager);
                 }
                 catch (SqlException e)
                 {

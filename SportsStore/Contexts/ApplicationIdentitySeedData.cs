@@ -9,7 +9,7 @@ namespace SportsStore.Contexts
        change the password for the account you have created. See Chapter 28 for details of how to change passwords
        using Identity.
     */
-    public static class IdentitySeedData
+    public static class ApplicationIdentitySeedData
     {
         private const string AdminUser = "Admin";
         private const string AdminPassword = "Secret123$";
