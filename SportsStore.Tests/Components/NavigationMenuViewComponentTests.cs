@@ -9,7 +9,7 @@ using SportsStore.Models;
 using Xunit;
 using Xunit.Sdk;
 
-namespace SportsStore.Tests
+namespace SportsStore.Tests.Components
 {
     public class NavigationMenuViewComponentTests
     {

@@ -8,7 +8,7 @@ using SportsStore.Infrastructure;
 using SportsStore.Models.ViewModels;
 using Xunit;
 
-namespace SportsStore.Tests
+namespace SportsStore.Tests.Infrastructure
 {
     public class PageLinkTagHelperTests
     {
