@@ -13,22 +13,20 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  build:
+  azure-devops-build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: Azure Pipelines Action
         uses: Azure/pipelines@v1
-        env:
-          AZURE_DEVOPS_TOKEN: ${{ secrets.AZURE_DEVOPS_TOKEN }}
         with:
           # Fullyqualified URL to the Azure DevOps organization along with project name(eg, https://dev.azure.com/organization/project-name or https://server.example.com:8080/tfs/DefaultCollection/project-name)
-          azure-devops-project-url: https://dev.azure.com/feliperomeromx/Projects
+          azure-devops-project-url: 'https://dev.azure.com/feliperomeromx/Projects'
           # Name of the Azure Pipline to be triggered
-          azure-pipeline-name: feliperomero3.SportsStore
+          azure-pipeline-name: 'feliperomero3.SportsStore'
           # Paste personal access token of the user as value of secret variable: AZURE_DEVOPS_TOKEN
-          azure-devops-token: AZURE_DEVOPS_TOKEN
+          azure-devops-token: '${{ secrets.AZURE_DEVOPS_TOKEN }}'
 
 
 
