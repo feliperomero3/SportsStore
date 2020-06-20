@@ -21,6 +21,6 @@ File > Open > Project/Solution and hit F5!
 ![Front Page](2019.12.11-20_40_48.png)
 
 [build-status-badge]: https://dev.azure.com/feliperomeromx/Projects/_apis/build/status/feliperomero3.SportsStore?branchName=master
-[build-status]: https://dev.azure.com/feliperomeromx/Projects/_build/latest?definitionId=7&branchName=master
-[coverage-badge]: https://img.shields.io/azure-devops/coverage/feliperomeromx/projects/7/master
-[coverage]: https://dev.azure.com/feliperomeromx/Projects/_build/latest?definitionId=7&branchName=master
+[build-status]: https://dev.azure.com/feliperomeromx/Projects/_build/latest?definitionId=8&branchName=master
+[coverage-badge]: https://img.shields.io/azure-devops/coverage/feliperomeromx/projects/8/master
+[coverage]: https://dev.azure.com/feliperomeromx/Projects/_build/latest?definitionId=8&branchName=master
