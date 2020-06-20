@@ -19,6 +19,14 @@ steps:
     feedsToUse: 'select'
     verbosityRestore: 'Normal' 
 
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'feliperomero3-sonarcloud'
+    organization: 'feliperomero3'
+    scannerMode: 'MSBuild'
+    projectKey: 'feliperomero3_SportsStore'
+    projectName: 'SportsStore'
+
 - task: DotNetCoreCLI@2
   displayName: 'Build'
   inputs:
@@ -39,6 +47,9 @@ steps:
     codeCoverageTool: 'Cobertura'
     summaryFileLocation: '$(Build.SourcesDirectory)/TestResults/Coverage/*cobertura.xml'
 
+- task: SonarCloudAnalyze@1
+  displayName: 'Run SonarCloud analysis'
+
 - task: DotNetCoreCLI@2
   displayName: 'Publish'
   inputs:
@@ -49,5 +60,10 @@ steps:
 
 - task: PublishBuildArtifacts@1
   inputs:
-    pathtoPublish: '$(Build.ArtifactStagingDirectory)' 
+    pathtoPublish: '$(Build.ArtifactStagingDirectory)'
     artifactName: 'drop'
+
+- task: SonarCloudPublish@1
+  displayName: 'Publish SonarCloud analysis results'
+  inputs:
+    pollingTimeoutSec: '300'
