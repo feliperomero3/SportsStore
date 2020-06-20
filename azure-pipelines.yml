@@ -35,17 +35,24 @@ steps:
     arguments: '--configuration $(buildConfiguration)'
 
 - task: DotNetCoreCLI@2
-  displayName: 'Test'
+  displayName: 'Test (coverage reports)'
   inputs:
     command: 'test'
     projects: '**/*Tests/*.csproj'
     arguments: '--no-build --configuration $(buildConfiguration) /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=$(Build.SourcesDirectory)\TestResults\Coverage\'
 
 - task: PublishCodeCoverageResults@1
-  displayName: 'Coverage'
+  displayName: 'Publish coverage reports'
   inputs:
     codeCoverageTool: 'Cobertura'
     summaryFileLocation: '$(Build.SourcesDirectory)/TestResults/Coverage/*cobertura.xml'
+
+- task: DotNetCoreCLI@2
+  displayName: 'Test (code coverage)'
+  inputs:
+    command: 'test'
+    projects: '**/*Tests/*.csproj'
+    arguments: '--collect "Code Coverage"'
 
 - task: SonarCloudAnalyze@1
   displayName: 'Run SonarCloud analysis'
