@@ -1,6 +1,7 @@
 # SportsStore
 
 [![Build Status][build-status-badge]][build-status]
+[![Quality Gate Status][quality-gate-status-badge]][quality-gate-status]
 [![Coverage][coverage-badge]][coverage]
 
 Based on the "Sports Store: A Real Application" built in the book `"Pro ASP.NET Core MVC 2"` by Adam Freeman.
@@ -24,3 +25,5 @@ File > Open > Project/Solution and hit F5!
 [build-status]: https://dev.azure.com/feliperomeromx/Projects/_build/latest?definitionId=8&branchName=master
 [coverage-badge]: https://img.shields.io/azure-devops/coverage/feliperomeromx/projects/8/master
 [coverage]: https://dev.azure.com/feliperomeromx/Projects/_build/latest?definitionId=8&branchName=master
+[quality-gate-status-badge]: https://sonarcloud.io/api/project_badges/measure?project=feliperomero3_SportsStore&metric=alert_status
+[quality-gate-status]: https://sonarcloud.io/dashboard?id=feliperomero3_SportsStore
