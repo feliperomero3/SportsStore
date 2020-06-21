@@ -20,6 +20,7 @@ steps:
     verbosityRestore: 'Normal' 
 
 - task: SonarCloudPrepare@1
+  displayName: Prepare SonarCloud analysis
   inputs:
     SonarCloud: 'feliperomero3-sonarcloud'
     organization: 'feliperomero3'
@@ -35,20 +36,7 @@ steps:
     arguments: '--configuration $(buildConfiguration)'
 
 - task: DotNetCoreCLI@2
-  displayName: 'Test (coverage reports)'
-  inputs:
-    command: 'test'
-    projects: '**/*Tests/*.csproj'
-    arguments: '--no-build --configuration $(buildConfiguration) /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=$(Build.SourcesDirectory)\TestResults\Coverage\'
-
-- task: PublishCodeCoverageResults@1
-  displayName: 'Publish coverage reports'
-  inputs:
-    codeCoverageTool: 'Cobertura'
-    summaryFileLocation: '$(Build.SourcesDirectory)/TestResults/Coverage/*cobertura.xml'
-
-- task: DotNetCoreCLI@2
-  displayName: 'Test (code coverage)'
+  displayName: 'Test'
   inputs:
     command: 'test'
     projects: '**/*Tests/*.csproj'
