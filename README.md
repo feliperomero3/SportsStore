@@ -23,7 +23,7 @@ File > Open > Project/Solution and hit F5!
 
 [build-status-badge]: https://dev.azure.com/feliperomeromx/Projects/_apis/build/status/feliperomero3.SportsStore?branchName=master
 [build-status]: https://dev.azure.com/feliperomeromx/Projects/_build/latest?definitionId=8&branchName=master
-[coverage-badge]: https://img.shields.io/azure-devops/coverage/feliperomeromx/projects/8/master
-[coverage]: https://dev.azure.com/feliperomeromx/Projects/_build/latest?definitionId=8&branchName=master
+[coverage-badge]: https://sonarcloud.io/api/project_badges/measure?project=feliperomero3_SportsStore&metric=coverage
+[coverage]: https://sonarcloud.io/dashboard?id=feliperomero3_SportsStore
 [quality-gate-status-badge]: https://sonarcloud.io/api/project_badges/measure?project=feliperomero3_SportsStore&metric=alert_status
 [quality-gate-status]: https://sonarcloud.io/dashboard?id=feliperomero3_SportsStore
