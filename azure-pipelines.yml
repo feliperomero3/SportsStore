@@ -17,7 +17,7 @@ steps:
     command: 'restore'
     projects: '**/*.sln'
     feedsToUse: 'select'
-    verbosityRestore: 'Normal' 
+    verbosityRestore: 'Minimal' 
 
 - task: SonarCloudPrepare@1
   displayName: Prepare SonarCloud analysis
