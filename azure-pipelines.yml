@@ -11,6 +11,11 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
+- task: UseDotNet@2
+  inputs:
+    packageType: 'sdk'
+    version: '2.2.x'
+
 - task: DotNetCoreCLI@2
   displayName: 'Restore'
   inputs:
@@ -33,14 +38,14 @@ steps:
   inputs:
     command: build
     projects: '**/*.sln'
-    arguments: '--configuration $(buildConfiguration)'
+    arguments: '--no-restore --configuration $(buildConfiguration)'
 
 - task: DotNetCoreCLI@2
   displayName: 'Test'
   inputs:
     command: 'test'
     projects: '**/*Tests/*.csproj'
-    arguments: '--collect "Code Coverage"'
+    arguments: '--no-build --collect "Code Coverage"'
 
 - task: SonarCloudAnalyze@1
   displayName: 'Run SonarCloud analysis'
@@ -50,8 +55,8 @@ steps:
   inputs:
     command: publish
     publishWebProjects: true
-    arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
-    zipAfterPublish: true
+    arguments: '--no-build --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+    zipAfterPublish: false
 
 - task: PublishBuildArtifacts@1
   displayName: Publish build artifacts
