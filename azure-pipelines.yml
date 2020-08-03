@@ -32,9 +32,6 @@ steps:
     scannerMode: 'MSBuild'
     projectKey: 'feliperomero3_SportsStore'
     projectName: 'SportsStore'
-    extraProperties: |
-      sonar.sources=SportsStore
-      sonar.tests=SportsStore.Tests
 
 - task: DotNetCoreCLI@2
   displayName: 'Build'
